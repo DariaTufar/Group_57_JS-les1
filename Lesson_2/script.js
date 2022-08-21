@@ -22,6 +22,7 @@
 // Вставте «Country» та «Reggae» на початок масиву.
 
 // const genres = ['Jazz', 'Blues'];
+ 
 // // push додає елемент в кінець масиву
 // genres.push( "Rocknroll")
 // console.table(genres);
@@ -42,6 +43,11 @@
 
 // genres.splice (0, 0, "Bach", "Mozart", " Vivaldi")
 // console.log (genres)
+ 
+// push додає елемент в кінець масиву
+// genres.push("Rock'n'roll");
+ 
+
 // console.log(genres);
 // console.log(genres[0]);
 // console.log(genres.length);
@@ -230,6 +236,7 @@
 // const a = 15;
 // const b = 144;
 
+ 
 // function slugify(title) {
     // Change code below this line
 
@@ -368,23 +375,300 @@
 // removeCourse( `HTML`);
 // removeCourse( `HTML`);
 
- ;
+//  ;
 
- const courses =[`HTML`, `CSS`, `Javascript`, `React`, `Node`];
+//  const courses =[`HTML`, `CSS`, `Javascript`, `React`, `Node`];
 
- function renameCourse(oldName, newName) {
-    const inArray= courses.includes(oldName);
-    console.log(inArray);
-    if (!inArray){
-        console.log(`no such course found`);
-        return;
-    }
+//  function renameCourse(oldName, newName) {
+//     const inArray= courses.includes(oldName);
+//     console.log(inArray);
+//     if (!inArray){
+//         console.log(`no such course found`);
+//         return;
+//     }
 
-    const idx = courses.indexOf(oldName);
-    console.log(idx);
-    console.log(courses);
-    courses.splice(idx,1, newName)
-    console.log(courses);
- }
+//     const idx = courses.indexOf(oldName);
+//     console.log(idx);
+//     console.log(courses);
+//     courses.splice(idx,1, newName)
+//     console.log(courses);
+//  }
 
- renameCourse(`Node`, `AGGG`);
+//  renameCourse(`Node`, `AGGG`);
+
+
+
+// ------------------------------------------------PART 2 ---------------------------------------------------//
+
+// Приклади з областями видимості
+// ------------------------------//
+// let a = 10;
+
+// if(true){
+// let a = 5
+// console.log('in local',a);
+// }
+// console.log('in global',a);
+
+// ------------------------------//
+// let a = 10;
+
+// if(true){
+//     a = 15;
+// }
+// console.log(a);
+
+// ------------------------------//
+// let a = 10;
+
+// if(true){
+//     let a = 20;
+//     a = 15;
+// }
+// console.log(a);
+
+// ------------------------------//
+// let a = 10;
+
+// if (true) {
+//     a = 15;
+//     // let a = 25;
+//     console.log('local', a);
+// }
+// console.log('global', a);
+
+// ------------------------------//
+// let x = 15; // примітивні типи даних
+// let y = 10;
+
+// function foo(a,y) {
+//     let a = 15;
+//     x = 99
+//     console.log(x);
+// }
+// foo(x, y)
+// console.log('x', x);
+
+// let x = [1, 5]; //складні типи даних за пасиланням
+// let y = 10;
+
+// function foo(a, y) {
+//     a[0] = 99
+// }
+// foo(x, y)
+// console.log('x', x);
+
+// let x = [1, 5]; //складні типи даних за пасиланням
+
+// const a = x;
+// x.splice(0,1)
+// console.log(a);
+// console.log(x);
+
+// let a = 15;
+
+// let b =a;
+
+// a += 15
+
+// console.log('a',a);
+// console.log("b",b);
+
+
+
+
+// const a = 20;
+// console.log(a); // 20
+
+// if (i === 2) {
+//   const b = 30;
+//   console.log(a); // 20
+//   console.log(b); // 30
+// }
+
+// if (i === 3) {
+//   console.log(a); // 20
+
+//   // ❌ Ошибка! Переменная b не доступна в этой области видимости
+//   console.log(b);
+// }
+
+
+// const a = 20;
+// console.log(a); // 20
+
+// if (i === 2) {
+//   const b = 30;
+//   console.log(a); // 20
+//   console.log(b); // 30
+//   if (i === 3) {
+//     console.log(a); // 20
+//     console.log(b); // 30
+//   }
+// }
+
+
+
+
+// Створення та види функцій
+
+// function expression
+// викликається тільки після оголошення
+// const foo = function (a, b) {
+//     return a + b
+// }
+// console.log(foo(3, 4));
+
+
+
+// function declaretion
+
+// function boo(a, b) {
+//     return a + b
+// }
+// console.log(test(11,24));
+// const test = boo;
+
+// console.log(test(11,24));
+
+// console.log(test);
+// console.log(boo(5,6));
+// console.log(boo(4,2));
+
+
+/// arguments
+//  Порахувати суму всіх чисел
+
+// function getSum (){
+// // console.log(arguments);
+// // const arr = Array.from(arguments)
+// // console.log(arr);
+// // let sum = arguments[0];
+// // for(let i = 1; i < arguments.length; i+=1){
+// //     sum*=arguments[i];
+// // }
+// let sum = 1;
+// // console.log(sum);
+// for(const argument of arguments ){
+//     sum*=argument
+//     // console.log(argument);
+// }
+// return sum
+// }
+
+// console.log(getSum(1, 2, 3, 4, 5, 6, 7, 8));
+// console.log( getSum(44, 5, 14, 3));
+
+
+// Стек викликів
+
+
+// function foo(){
+//     console.log('Hello');
+//     boo()
+//     console.log('qwerty');
+// }
+
+// function boo(){
+//     console.log('world');
+// }
+// foo()
+// function foo(){
+//     console.log('foo before');
+//     boo()
+//     console.log('foo after');
+// }
+
+
+// function boo(){
+//     foo()
+//     console.log('boo');
+// }
+
+// foo()
+
+
+
+// Створити функцію яка буде сортувати елементи масиву та повертати в результаті виконання масив тільки числових значень
+
+// function onlyNumbers(arr) {
+//     const numbers = []
+//     for (const item of arr) {
+//         // if (typeof item === 'number' && !isNaN(item)) {
+//         //     numbers.push(item)
+//         // }
+
+//         typeof item === 'number' && !isNaN(item) ? numbers.push(item) : null;
+//     }
+//     return numbers
+// }
+
+// // onlyNumbers([33, 15, false, NaN, -22])
+// const result = onlyNumbers(['21', true, 12, [1, 2], 27, 19, null, 17])
+// console.log(result);
+
+
+
+
+// Напишіть функції для роботи з колекцією навчальних курсів courses:
+// 1 addCourse(name) - додає курс в кінець колекції
+// 2 removeCourse(name) - видаляє курс з колекції
+// 3 updateCourse(oldName, newName) - замінює назву на нову
+const courses = ['HTML', 'CSS', 'JavaScript', 'React', 'Node', 'Express'];
+
+// function addCourse(name) {
+//     console.log(name);
+//     if (courses.includes(name)) {
+//         console.log('Ви вже маєте данний курс');
+//         return;
+//     }
+//     courses.push(name)
+//     // console.log(courses);
+//     return courses;
+// }
+
+// Оператор ~ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_NOT
+// function removeCourse(name) {
+//     const idx = courses.indexOf(name)
+
+//     if (idx === -1) {
+//         console.log('Курс з такою назвою не знайдено');
+//         return;
+//     }
+//     courses.splice(idx, 1)
+//     console.log(courses);
+
+// }
+
+// function updateCourse (oldName, newName){
+//     const inArr = courses.includes(oldName);
+//     if(!inArr){
+//         console.log('Курс з такою назвою не знайдено');
+//         return;
+//     }
+//     console.log(courses);
+//     const idx = courses.indexOf(oldName);
+//     courses.splice(idx,1,newName)
+//     console.log(courses);
+
+
+// }
+
+// console.log();
+// console.log();
+// console.log();
+
+// addCourse('Express');
+// console.log(courses); // ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL', 'Express']
+// addCourse('CSS'); // 'Ви вже маєте данний курс'
+
+// removeCourse('HTML');
+// removeCourse('React');
+// removeCourse('React');
+// console.log(courses); // ['HTML', 'CSS', 'JavaScript', 'PostgreSQL', 'Express']
+// removeCourse('Vue'); // 'Курс з такою назвою не знайдено'
+
+// updateCourse('Express', 'NextJS');
+// console.log(courses); // ['HTML', 'CSS', 'JavaScript', 'PostgreSQL', 'NextJS']
+// updateCourse('Angular', 'NestJS'); //'Курс з такою назвою не знайдено'
+ 
